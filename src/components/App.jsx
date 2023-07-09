@@ -2,7 +2,7 @@ import React from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './Contacts/Contacts';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import Loading from './Loading/Loading';
 
 export default function App() {
