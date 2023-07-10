@@ -1,18 +1,18 @@
 import { Ul, Li, Btn } from './Contacts.styled';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeContact } from 'redux/store';
-import { fetchContacts } from 'redux/store';
+import { useDispatch } from 'react-redux';
+import { fetchContacts, removeContact } from 'redux/operations';
 import { useEffect } from 'react';
 import shortid from 'shortid';
+import GetSelector from 'redux/selectors';
+
 const ContactList = () => {
+  const { filter, contacts } = GetSelector();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const contacts = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.filter);
   const filteredContacts = contacts.filter(contact => {
     return contact.name.toString().toLowerCase().includes(filter.toLowerCase());
   });

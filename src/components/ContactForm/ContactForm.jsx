@@ -1,11 +1,12 @@
 import css from './ContactForm.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/store';
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/operations';
 import shortid from 'shortid';
+import GetSelector from 'redux/selectors';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const { contacts } = GetSelector();
   const onSubmit = e => {
     e.preventDefault();
     const form = e.target;
